@@ -85,7 +85,7 @@ if __name__=="__main__":
         walk.run()
      
     def test3D(): 
-        WALK=3
+        WALK=7
         print("Starting...")
         #walk = tWalk3D.uniform_tunneling(2*WALK+1)
         walk = tWalk3D.random_tunneling(2*WALK+1)

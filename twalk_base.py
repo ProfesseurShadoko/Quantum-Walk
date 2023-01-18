@@ -31,6 +31,8 @@ class tWalk:
             Qobj(np.zeros((self.size,self.size))) for _ in range(self.DIM)
         ])
         self.particle = self.fock(*[self.size//2 for _ in range(self.DIM)])
+        self.frame_nbr=None
+        self.duration=None
     
     def __str__(self)->str:
         out=f"{type(self).__name__} :\n"
@@ -142,7 +144,7 @@ class tWalk:
     def std(self,time:int)->float:
         return np.sqrt(self.variance(time))
     
-    def plot_ax(self,ax:Axes3D,time:int):
+    def plot_ax(self,ax:plt.Axes,time:int):
         raise(Exception(f"Undefined method {type(self).__name__}.plot_ax !"))
     
     
