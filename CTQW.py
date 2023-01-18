@@ -47,6 +47,7 @@ class tWalk3D(tWalk):
     y_label="y"
     z_label="z"
     cmap="GnBu"
+    cmap="plasma"
     show_cbar=True
     
     bottom_radius=0.1
@@ -90,11 +91,9 @@ if __name__=="__main__":
         walk.run()
      
     def test3D(): 
-        WALK=7
+        WALK=3
         print("Starting...")
-        #walk = tWalk3D.uniform_tunneling(2*WALK+1)
         walk = tWalk3D.random_tunneling(2*WALK+1)
-        #walk.particle=walk.fock(1,1,1)
         
         walk.set_animation_param(duration=200*WALK**3,frame_nbr=1000)
         print(walk.__repr__())
@@ -102,7 +101,15 @@ if __name__=="__main__":
         print("Solving...")
         walk.run()
     
-    test3D()
+    walk = tWalk2D.uniform_tunneling(21)
+    walk.set_animation_param(10_000,1000)
+    walk.solve()
+    walk.show(200)
+    
+    walk = tWalk3D.random_tunneling(7)
+    walk.set_animation_param(10_000,1000)
+    walk.solve()
+    walk.show(500)
     
     
     
