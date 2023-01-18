@@ -60,7 +60,9 @@ walk.set_animation_param(duration=500,frame_nbr=1000)
 walk.run()
 ```
 
-And that's it ! You can run the script exemple.py to see what it looks like !
+And that's it ! You can run the script exemple.py to see what the animation looks like.
+***
+![](images/2D_plasma.png)
 
 ***
 
@@ -121,5 +123,10 @@ walk.std(t) #standard deviation
 #show particle at time t
 walk.show(time)
 ```
+
+You get something like that, isn't it beautiful ?
+***
+![](images/3D_plasma.png)
+***
 
 And that's it ! For now...
