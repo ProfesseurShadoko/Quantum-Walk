@@ -117,11 +117,9 @@ distribution[x,y,z] #returns the probability for the position (x,y,z)
 walk.mean(t) #average position
 walk.variance(t)
 walk.std(t) #standard deviation
-```
 
-And if you want to plot the particle at a certain time, you can run
-```python
-walk.plot_ax(ax,time) #ax should be in 3D for 2 and 3-dimensional walks
+#show particle at time t
+walk.show(time)
 ```
 
 And that's it ! For now...

@@ -49,6 +49,9 @@ class tWalk3D(tWalk):
     cmap="GnBu"
     show_cbar=True
     
+    bottom_radius=0.1
+    radius_fact=3 #size of scatter points is bottom_radius + radius_fact*proba
+    
     
     def plot_ax(self,ax:Axes3D, time:int):
         X=[]
@@ -61,8 +64,10 @@ class tWalk3D(tWalk):
             Y.append(position[1])
             Z.append(position[2])
             VAL.append(dist[position])
+        m = max(VAL)
+        RADIUS = 10*(self.bottom_radius+np.array(VAL)/m*self.radius_fact)
         
-        p1=ax.scatter(X,Y,Z,c=VAL,cmap=self.cmap)
+        p1=ax.scatter(X,Y,Z,c=VAL,cmap=self.cmap,s=RADIUS)
         
         if self.show_cbar:
             if hasattr(self,"_cbar"):

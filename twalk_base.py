@@ -223,6 +223,25 @@ class tWalk:
         ani = anim.FuncAnimation(fig,animate,interval=10)
         plt.show()
     
+    def show(self,time:int)->None:
+        if self.particle_over_time==None:
+            self.solve()
+        fig = plt.figure()
+        if self.DIM>1:
+            ax = fig.add_subplot(1,1,1,projection='3d')
+        else:
+            ax = fig.add_subplot(1,1,1)
+            
+        print(f"Mean = {self.mean(time)} | STD = {self.std(time):.2f}"+" "*20,end="\r")
+        fig.suptitle(f"Time : {time} {self.time_unit}")
+        ax.set_xlabel(self.x_label)
+        ax.set_ylabel(self.y_label)
+        if self.DIM>=2:
+            ax.set_zlabel(self.z_label)
+        self.plot_ax(ax,time)
+        
+        plt.show()
+    
     #ITERATORS
     
     def positions(self):
